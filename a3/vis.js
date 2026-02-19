@@ -430,6 +430,7 @@ const spec3b = {
 
 vegaEmbed('#vis3b', spec3b);
 
+
 // Visualization 4a: PS2 vs PS3 Sales Over Time
 const spec4a = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -438,46 +439,17 @@ const spec4a = {
     {"filter": "datum.Year != null"},
     {"filter": "datum.Platform == 'PS2' || datum.Platform == 'PS3'"}
   ],
-  "mark": {"type": "line", "point": true, "strokeWidth": 3},
-  "encoding": {
-    "x": {"field": "Year", "type": "quantitative", "title": "Year"},
-    "y": {
-      "aggregate": "sum",
-      "field": "Global_Sales",
-      "type": "quantitative",
-      "title": "Total Sales (millions)"
-    },
-    "color": {
-      "field": "Platform",
-      "type": "nominal",
-      "scale": {
-        "domain": ["PS2", "PS3"],
-        "range": ["#003087", "#00439C"]
-      },
-      "title": "Platform"
-    },
-    "tooltip": [
-      {"field": "Year", "type": "quantitative"},
-      {"field": "Platform", "type": "nominal"},
-      {"aggregate": "sum", "field": "Global_Sales", "type": "quantitative"}
-    ]
+  "mark": {
+    "type": "line",
+    "point": true,
+    "strokeWidth": 3
   },
-  "width": 700,
-  "height": 400,
-  "title": "PS2 vs PS3: Sales Over Time"
-};
-
-// Visualization 4a: PS2 vs PS3 Sales Over Time
-const spec4a = {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "dataset/videogames_wide.csv"},
-  "transform": [
-    {"filter": "datum.Year != null"},
-    {"filter": "datum.Platform == 'PS2' || datum.Platform == 'PS3'"}
-  ],
-  "mark": {"type": "line", "point": true, "strokeWidth": 3},
   "encoding": {
-    "x": {"field": "Year", "type": "quantitative", "title": "Year"},
+    "x": {
+      "field": "Year",
+      "type": "quantitative",
+      "title": "Year"
+    },
     "y": {
       "aggregate": "sum",
       "field": "Global_Sales",
@@ -509,23 +481,23 @@ vegaEmbed('#vis4a', spec4a);
 // Visualization 4b: PS2 vs PS3 Genre Preferences
 const spec4b = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "dataset/videogames_wide.csv"},
+  "data": {"url": "dataset/videogames_wide@1.csv"},
   "transform": [
     {"filter": "datum.Platform == 'PS2' || datum.Platform == 'PS3'"}
   ],
   "mark": "bar",
   "encoding": {
-    "x": {
-      "aggregate": "sum",
-      "field": "Global_Sales",
-      "type": "quantitative",
-      "title": "Total Sales (millions)"
-    },
     "y": {
       "field": "Genre",
       "type": "nominal",
       "sort": "-x",
       "title": "Genre"
+    },
+    "x": {
+      "aggregate": "sum",
+      "field": "Global_Sales",
+      "type": "quantitative",
+      "title": "Total Sales (millions)"
     },
     "color": {
       "field": "Platform",
@@ -536,23 +508,18 @@ const spec4b = {
       },
       "title": "Platform"
     },
-    "column": {
-      "field": "Platform",
-      "type": "nominal"
-    },
     "tooltip": [
       {"field": "Genre", "type": "nominal"},
       {"field": "Platform", "type": "nominal"},
       {"aggregate": "sum", "field": "Global_Sales", "type": "quantitative"}
     ]
   },
-  "width": 300,
+  "width": 600,
   "height": 400,
   "title": "PS2 vs PS3: Genre Preferences"
 };
 
+vegaEmbed('#vis4a', spec4a);
 vegaEmbed('#vis4b', spec4b);
-
-console.log('Assignment 3 Vega-Lite visualizations initialized!');
 
 console.log('Assignment 3 Vega-Lite visualizations initialized!');
