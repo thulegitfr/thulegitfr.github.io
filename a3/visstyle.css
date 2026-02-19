@@ -1,0 +1,256 @@
+/* Assignment 3 Visualization Page Styling */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+/* Additional styles for visualizations page */
+.viz-container {
+    background-color: white;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Assignment section headers */
+.assignment-header {
+    background: linear-gradient(135deg, #000000 0%, #333333 100%);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    margin: 2rem 0;
+    border-radius: 4px;
+}
+
+.assignment-header h2 {
+    color: white;
+    margin: 0 0 0.5rem 0;
+    border-bottom: none;
+    font-size: 2em;
+    padding-bottom: 0;
+}
+
+.assignment-header p {
+    color: #f4f4f4;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Visualization sections */
+.viz-section {
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.viz-section:last-child {
+    border-bottom: none;
+}
+
+.viz-section h2 {
+    font-family: 'Roboto Mono', monospace;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-bottom: 3px solid #666;
+    padding-bottom: 0.5rem;
+}
+
+.viz-section h3 {
+    font-family: 'Roboto Mono', monospace;
+    color: #333;
+    margin: 2rem 0 1rem 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding-left: 0.5rem;
+    border-left: 4px solid #000000;
+}
+
+.viz-section h4 {
+    font-family: 'Roboto Mono', monospace;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+/* Reflection boxes */
+.reflection {
+    background: #f9f9f9;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-left: 4px solid #000000;
+    border-radius: 4px;
+}
+
+.reflection h4 {
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.reflection p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.reflection p:last-child {
+    margin-bottom: 0;
+}
+
+.reflection strong {
+    color: #000000;
+    font-weight: 700;
+}
+
+/* Dataset overview styling */
+.viz-section ul {
+    line-height: 2;
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+.viz-section li {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.viz-section li strong {
+    color: #000000;
+    font-weight: 700;
+}
+
+/* Vega-Lite chart containers */
+div[id^="vis"] {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    min-height: 300px;
+}
+
+/* Loading state for visualizations */
+div[id^="vis"]:empty::after {
+    content: "Loading visualization...";
+    color: #666;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Original Assignment 2 visualizations */
+#barChart,
+#creativeArt {
+    display: block;
+    margin: 0 auto;
+}
+
+svg {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+/* Text content styling */
+.viz-section p {
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+/* Center aligned text for certain paragraphs */
+p[style*="text-align: center"] {
+    margin-bottom: 1rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsive design for tablets */
+@media (max-width: 768px) {
+    .viz-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .assignment-header {
+        padding: 1.5rem;
+    }
+    
+    .assignment-header h2 {
+        font-size: 1.5em;
+    }
+    
+    .viz-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .viz-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    .reflection {
+        padding: 1rem;
+    }
+    
+    div[id^="vis"] {
+        margin: 1.5rem 0;
+    }
+    
+    .viz-section ul {
+        margin-left: 1rem;
+    }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 480px) {
+    .viz-container {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    
+    .assignment-header {
+        padding: 1rem;
+    }
+    
+    .assignment-header h2 {
+        font-size: 1.3em;
+    }
+    
+    .viz-section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .viz-section h3 {
+        font-size: 1rem;
+        padding-left: 0.3rem;
+    }
+    
+    .reflection {
+        padding: 0.75rem;
+    }
+    
+    div[id^="vis"] {
+        margin: 1rem 0;
+        min-height: 250px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .viz-container {
+        box-shadow: none;
+    }
+    
+    .assignment-header {
+        background: #000000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .reflection {
+        border-left-color: #000000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
