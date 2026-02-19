@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../P01_ThuLe_301396432"
+		},
+		{
+			"path": "../../355labtuts"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "thulegitfr.github.io"
+	}
+}
