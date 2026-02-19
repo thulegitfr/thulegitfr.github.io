@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizations - Thu Le</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Vega-Lite Libraries for Assignment 3 -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    
+    <style>
+        /* Additional styles for visualizations page */
+        .viz-container {
+            background-color: white;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .viz-section {
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .viz-section:last-child {
+            border-bottom: none;
+        }
+        
+        .viz-section h2 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .viz-section h3 {
+            color: #555;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+        
+        .reflection {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+        
+        .reflection h4 {
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+        }
+        
+        svg {
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+        }
+        
+        /* Vega-Lite chart containers */
+        div[id^="vis"] {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* Assignment header */
+        .assignment-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        
+        .assignment-header h2 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Thu Le</h1>
+        <p>Data Visualizations & Creative Art</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#assignment2">Assignment 2</a></li>
+            <li><a href="#assignment3">Assignment 3</a></li>
+        </ul>
+    </nav>
+
+    <div class="viz-container">
+        <!-- ASSIGNMENT 2 VISUALIZATIONS -->
+        <div id="assignment2" class="assignment-header">
+            <h2>Assignment 2: Skills & Creative Visualizations</h2>
+            <p>IAT 355 - Fall 2024</p>
+        </div>
+        
+        <!-- Visualization 1: Data Visualization -->
+        <section id="viz1" class="viz-section">
+            <h2>Visualization 1: Skills Bar Chart</h2>
+            <p style="text-align: center; margin-bottom: 1rem;">
+                A visual representation of my technical skill levels
+            </p>
+            <div id="barChart"></div>
+        </section>
+
+        <!-- Visualization 2: Creative SVG Art -->
+        <section id="viz2" class="viz-section">
+            <h2>Visualization 2: Geometric Pattern Art</h2>
+            <p style="text-align: center; margin-bottom: 1rem;">
+                Interactive geometric design created with JavaScript and SVG
+            </p>
+            <div id="creativeArt"></div>
+        </section>
+
+        <!-- ASSIGNMENT 3 VISUALIZATIONS -->
+        <div id="assignment3" class="assignment-header">
+            <h2>Assignment 3: Video Game Sales Analysis</h2>
+            <p>IAT 355 - Winter 2025</p>
+        </div>
+
+        <!-- Dataset Overview -->
+        <section class="viz-section">
+            <h2>Dataset Overview</h2>
+            <p>This dataset contains 16,598 video game records spanning from 1980 to 2020, tracking sales across different platforms, genres, and regions. The data includes variables such as game name, platform, release year, genre, publisher, and sales figures for North America, Europe, Japan, and other regions.</p>
+            <p>Key findings from the data exploration:</p>
+            <ul style="line-height: 2; margin-left: 2rem;">
+                <li><strong>Platforms:</strong> 31 unique platforms with PS2 (2,161 games) and DS (2,163 games) being the most represented</li>
+                <li><strong>Genres:</strong> 12 genres with Action (3,316 games, 20%) being the most common</li>
+                <li><strong>Publishers:</strong> 578 unique publishers, dominated by Japanese and American companies</li>
+                <li><strong>Time Range:</strong> 1980-2020, with peak releases in 2009 (1,427 games)</li>
+                <li><strong>Sales Distribution:</strong> Highly skewed - most games sell modestly while a few blockbusters achieve massive sales</li>
+            </ul>
+        </section>
+
+        <!-- Visualization 1 -->
+        <section class="viz-section">
+            <h2>Visualization 1: Global Sales by Genre and Platform</h2>
+            
+            <h3>Question 1: Which genres generate the highest total global sales?</h3>
+            <div id="vis1a"></div>
+            
+            <h3>Question 2: How do the top 5 platforms compare across genres?</h3>
+            <div id="vis1b"></div>
+            
+            <div class="reflection">
+                <h4>Reflection</h4>
+                <p><strong>Why this question?</strong> I wanted to understand which genres drive the most revenue and whether platform choice affects genre success.</p>
+                <p><strong>Key Insights:</strong> Action games dominate global sales, followed by Sports and Shooter genres. When broken down by platform, we can see that certain platforms excel in specific genres - for example, the Wii dominated Sports games due to titles like Wii Sports, while the X360 and PS3 were stronger in Action and Shooter genres.</p>
+                <p><strong>Challenges:</strong> Initially struggled with the aggregate syntax in Vega-Lite, but learned to use the shorthand `.sum()` method for cleaner code.</p>
+            </div>
+        </section>
+
+        <!-- Visualization 2 -->
+        <section class="viz-section">
+            <h2>Visualization 2: Sales Over Time by Platform and Genre</h2>
+            
+            <h3>Question 1: How have sales for the top platforms changed from 1980 to 2020?</h3>
+            <div id="vis2a"></div>
+            
+            <h3>Question 2: Which genres have grown or declined over decades (1980-2020)?</h3>
+            <div id="vis2b"></div>
+            
+            <div class="reflection">
+                <h4>Reflection</h4>
+                <p><strong>Why this question?</strong> I was curious about the rise and fall of different gaming platforms and how player preferences for genres evolved over 40 years.</p>
+                <p><strong>Key Insights:</strong> The platform lifecycle chart clearly shows the boom and bust cycles of gaming consoles. PS2 peaked around 2004-2005, while the Wii had a dramatic rise and fall around 2008-2010. The genre stacked area chart reveals that the overall gaming market peaked around 2008-2009 before declining, likely due to the shift toward mobile and digital distribution. Action and Sports consistently held the largest market share.</p>
+                <p><strong>Challenges:</strong> Had to handle the Year field as quantitative rather than temporal to avoid formatting issues with the axis labels.</p>
+            </div>
+        </section>
+
+        <!-- Visualization 3 -->
+        <section class="viz-section">
+            <h2>Visualization 3: Regional Sales vs Platform</h2>
+            
+            <h3>Question 1: Which platforms are most popular in each region?</h3>
+            <div id="vis3a"></div>
+            
+            <h3>Question 2: Regional preference patterns - Heatmap</h3>
+            <div id="vis3b"></div>
+            
+            <div class="reflection">
+                <h4>Reflection</h4>
+                <p><strong>Why this question?</strong> I wanted to explore whether gaming preferences differ geographically and which regions contribute most to platform success.</p>
+                <p><strong>Key Insights:</strong> North America and Europe are clearly the largest gaming markets by far. Japan shows unique preferences, with certain Nintendo platforms performing proportionally better there. The heatmap reveals that PS2 was universally successful across all regions, while other platforms had more regional variation.</p>
+                <p><strong>Challenges:</strong> Needed to use the "long" format dataset for this visualization and had to carefully match column names (sales_region, sales_amount, platform in lowercase).</p>
+            </div>
+        </section>
+
+        <!-- Visualization 4 -->
+        <section class="viz-section">
+            <h2>Visualization 4: PS2 vs PS3 - A Tale of Two Generations</h2>
+            
+            <h3>Question 1: How did PS2 and PS3 sales evolve over their lifecycles?</h3>
+            <div id="vis4a"></div>
+            
+            <h3>Question 2: Did PS2 and PS3 have different regional sales distributions?</h3>
+            <div id="vis4b"></div>
+            
+            <div class="reflection">
+                <h4>Reflection</h4>
+                <p><strong>Why this question?</strong> I was curious about how Sony's two most successful consoles compared. PS2 is the best-selling console of all time, while PS3 had a difficult launch due to its high price but eventually recovered.</p>
+                <p><strong>Key Insights:</strong> PS2 had a much longer and more successful lifecycle, with sales peaking around 2004-2005 and continuing strong for years. PS3 launched later (2006) and never quite reached PS2's peak annual sales. Interestingly, PS2 continued to sell alongside PS3 for several years. The regional distribution shows both consoles were strongest in North America and Europe, with relatively similar patterns despite their different eras.</p>
+                <p><strong>Challenges:</strong> Creating a meaningful comparison required careful data filtering and color choices to make the two platforms visually distinct. Used different shades of PlayStation blue for brand consistency.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><a href="index.html">← Back to Home</a></p>
+        <p style="margin-top: 1rem;">IAT 355 | Simon Fraser University | 2025</p>
+    </footer>
+
+    <script src="vis.js"></script>
+</body>
+</html>
