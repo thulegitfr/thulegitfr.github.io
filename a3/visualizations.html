@@ -135,14 +135,15 @@
         <!-- Dataset Overview -->
         <section class="viz-section">
             <h2>Dataset Overview</h2>
-            <p>This dataset contains 16,598 video game records spanning from 1980 to 2020, tracking sales across different platforms, genres, and regions. The data includes variables such as game name, platform, release year, genre, publisher, and sales figures for North America, Europe, Japan, and other regions.</p>
+            <p>This dataset contains 16,598 video game records spanning from 1977 to 2020, tracking the sales of video games published on different platforms, of different genres, and across multiple regions. 
+                The data includes variables such as game name, platform, release year, genre, publisher, and sales figures for North America, Europe, Japan, other regions, as well as the total global sales for each video game titles.</p>
             <p>Key findings from the data exploration:</p>
             <ul style="line-height: 2; margin-left: 2rem;">
-                <li><strong>Platforms:</strong> 31 unique platforms with PS2 (2,161 games) and DS (2,163 games) being the most represented</li>
+                <li><strong>Platforms:</strong> 31 unique platforms with PS2 (2,161 games) and DS (2,163 games) being the host for most video game titles</li>
                 <li><strong>Genres:</strong> 12 genres with Action (3,316 games, 20%) being the most common</li>
-                <li><strong>Publishers:</strong> 578 unique publishers, dominated by Japanese and American companies</li>
-                <li><strong>Time Range:</strong> 1980-2020, with peak releases in 2009 (1,427 games)</li>
-                <li><strong>Sales Distribution:</strong> Highly skewed - most games sell modestly while a few blockbusters achieve massive sales</li>
+                <li><strong>Publishers:</strong> 590 unique publishers, dominated by Japanese and American companies</li>
+                <li><strong>Time Range:</strong> 1977-2020, with peak releases in 2008 (1,453 games)</li>
+                <li><strong>Sales Distribution:</strong> Highly skewed right, as a few titles generate huge amount of revenue</li>
             </ul>
         </section>
 
@@ -159,7 +160,12 @@
             <div class="reflection">
                 <h4>Reflection</h4>
                 <p><strong>Why this question?</strong> I wanted to understand which genres drive the most revenue and whether platform choice affects genre success.</p>
-                <p><strong>Key Insights:</strong> Action games dominate global sales, followed by Sports and Shooter genres. When broken down by platform, we can see that certain platforms excel in specific genres - for example, the Wii dominated Sports games due to titles like Wii Sports, while the X360 and PS3 were stronger in Action and Shooter genres.</p>
+                <p><strong>Key Insights:</strong>Action, Sports, and Shooter games dominate the market, driven by their fast-paced gameplay and reward systems that keep players engaged. 
+                    In Action games, the PS2, PS3, and Xbox 360 collectively generated over 820 million units in sales. 
+                    The PS2's dominance stemmed from its plug-and-play simplicity and accessible pricing, while the PS3 and Xbox 360 leveraged superior graphics capabilities to deliver the level of cinematic quality gamers are looking to experience.
+                    The Shooter genre tells a different story: Xbox 360 dominated the category with 278.6 million units, benefiting from its ergonomic controller design that made aiming and shooting feel natural, a critical advantage in a genre where precision and operational comfort matters. Meanwhile, the Wii claimed the Sports genre with an impressive 292.06 million units, powered almost entirely by Wii Sports. This bundled title became the best-selling game of all time (41.49 million units in North America alone), proving that accessible motion controls could transform casual living room activities into a meaningful gaming experience.
+                    These patterns reveals that platform success in any genre depends on matching hardware strengths to gameplay requirements.
+          </p>
                 <p><strong>Challenges:</strong> Initially struggled with the aggregate syntax in Vega-Lite, but learned to use the shorthand `.sum()` method for cleaner code.</p>
             </div>
         </section>
@@ -177,7 +183,12 @@
             <div class="reflection">
                 <h4>Reflection</h4>
                 <p><strong>Why this question?</strong> I was curious about the rise and fall of different gaming platforms and how player preferences for genres evolved over 40 years.</p>
-                <p><strong>Key Insights:</strong> The platform lifecycle chart clearly shows the boom and bust cycles of gaming consoles. PS2 peaked around 2004-2005, while the Wii had a dramatic rise and fall around 2008-2010. The genre stacked area chart reveals that the overall gaming market peaked around 2008-2009 before declining, likely due to the shift toward mobile and digital distribution. Action and Sports consistently held the largest market share.</p>
+                <p><strong>Key Insights:</strong> 
+                The sales timeline reveals striking differences in platform lifecycles. Notably, the PS2 significantly outsold the PS3 and remained commercially viable for six years longer than its successor, which is an unusual trend. 
+                The PS2's longevity can be attributed to its vast game catalog and dual functionality as an affordable DVD player, which appealed to both gamers and mainstream consumers seeking home entertainment solutions.
+                The Wii also demonstrated remarkable staying power with an 11-year market presence, reaching peak annual sales of 210.9 million units globally. Its innovative motion-based controllers lowered the barrier to entry for non-traditional gamers, 
+                attracting demographics who are inexperienced to the use of controllers. This broad appeal drove rapid adoption, which is further exemplified by th title Wii Sports becoming a household name.
+                However, the Wii's momentum was not long lasting due to a relatively limited library of games meant that while the platform successfully captured casual audiences, it struggled to remain relevant across the decades. </p>
                 <p><strong>Challenges:</strong> Had to handle the Year field as quantitative rather than temporal to avoid formatting issues with the axis labels.</p>
             </div>
         </section>
@@ -195,7 +206,13 @@
             <div class="reflection">
                 <h4>Reflection</h4>
                 <p><strong>Why this question?</strong> I wanted to explore whether gaming preferences differ geographically and which regions contribute most to platform success.</p>
-                <p><strong>Key Insights:</strong> North America and Europe are clearly the largest gaming markets by far. Japan shows unique preferences, with certain Nintendo platforms performing proportionally better there. The heatmap reveals that PS2 was universally successful across all regions, while other platforms had more regional variation.</p>
+                <p><strong>Key Insights:</strong> North America and Europe dominate as the largest gaming markets, with the Xbox 360, PS2, and Wii emerging as the most popular platforms across both regions. 
+                    Japan exhibits distinctive preferences, showing particularly strong adoption of the DS alongside sustained interest in PlayStation consoles and the Wii.
+                    The PS2's exceptional performance in North America can be attributed to several factors: its extensive game library fueled by cost-effective development tools, relatively low production barriers for developers, 
+                    and competitive pricing that made it accessible to mass-market consumers. This combination created a virtuous cycle where a large install base attracted more developers, which in turn drove further hardware sales.
+                    The DS's comparatively modest North American performance during its early years likely reflected market saturation from Nintendo's Game Boy Advance, which was still commercially viable. 
+                    Consumers may have been hesitant to invest in a new handheld device that, despite innovative dual-screen technology, served a similar function at a higher price point. 
+            </p>
                 <p><strong>Challenges:</strong> Needed to use the "long" format dataset for this visualization and had to carefully match column names (sales_region, sales_amount, platform in lowercase).</p>
             </div>
         </section>
@@ -213,7 +230,9 @@
             <div class="reflection">
                 <h4>Reflection</h4>
                 <p><strong>Why this question?</strong> I was curious about how Sony's two most successful consoles compared. PS2 is the best-selling console of all time, while PS3 had a difficult launch due to its high price but eventually recovered. I also wanted to see if gaming genre preferences shifted between these two generations.</p>
-                <p><strong>Key Insights:</strong> PS2 had a much longer and more successful lifecycle, with sales peaking around 2004-2005 and continuing strong for years. PS3 launched later (2006) and never quite reached PS2's peak annual sales. Interestingly, PS2 continued to sell alongside PS3 for several years. The genre comparison reveals that while both consoles excelled in Action and Sports games, there were some notable differences - Shooter games became much more prominent on PS3, reflecting the rise of franchises like Call of Duty and Battlefield during that era.</p>
+                <p><strong>Key Insights:</strong> The PS2 dramatically outlasted the PS3, peaking in 2004-2005 and remaining commercially viable years after its successor's 2006 launch. The two consoles coexisted successfully, with the PS2's affordability and dual functionality as a DVD player sustaining its appeal even as newer hardware emerged.
+                    Genre trends evolved between generations. Both platforms dominated Action and Sports games, but Shooters exploded on PS3, driven by Call of Duty and Battlefield franchises that showcased the console's superior graphics. However, technical prowess alone doesn't explain the PS2's enduring cultural significance.
+                    The PS2's legacy stems from its ability to satisfy users emotionally and reflectively. It represents an era when creative freedom thrived because development costs permitted risk-taking. The PS2 wasn't the most powerful console of its time, but it offered something more valuable: accessibility for developers and players alike, fostering innovation that modern budget constraints have largely eliminated. </p>
                 <p><strong>Challenges:</strong> Creating a meaningful comparison required careful data filtering and color choices to make the two platforms visually distinct. I used different shades to represent each console - red for PS2 and blue for PS3. The column faceting for the genre chart allows for easy side-by-side comparison without the bars overlapping.</p>
             </div>
         </section>
